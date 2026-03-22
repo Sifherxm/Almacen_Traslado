@@ -1,7 +1,7 @@
 <h1 align="center">📦 Almacen_Traslado</h1>
 
 <p align="center">
-  <img src="./tu_imagen.jpg" width="700"/>
+  <img src="./trasladorfid" width="700"/>
 </p>
 
 <p align="center">
