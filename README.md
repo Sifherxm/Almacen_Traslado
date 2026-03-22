@@ -11,5 +11,6 @@ Sistema automatizado de traslado de almacenes utilizando tecnología RFID
 ---
 
 ## 👥 Equipo
-- Unizumi  
-- Dinamita
+- Mauricio González Martínez
+- Alan Delgadillo Garcia
+- Maximo Tonatiu Nava Valdes
