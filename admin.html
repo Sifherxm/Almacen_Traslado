@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin RFID</title>
+    <link rel="stylesheet" href="style/admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Panel Administrador</h1>
+
+      <div id="msg" class="msg"></div>
+
+      <div class="top">
+        <div><strong>Lector a escuchar</strong></div>
+        <div class="field" style="max-width: 320px; margin-top: 10px">
+          <select id="lectorSeleccionado">
+            <option value="CUALQUIERA">CUALQUIERA</option>
+            <option value="ESP_ALMACEN_A">ESP_ALMACEN_A</option>
+            <option value="ESP_ALMACEN_B">ESP_ALMACEN_B</option>
+          </select>
+        </div>
+
+        <div style="margin-top: 12px">
+          <strong>Último UID escaneado</strong>
+        </div>
+        <div id="uidActual" class="uid">Esperando escaneo...</div>
+        <div id="detalleEscaneo" class="small"></div>
+      </div>
+
+      <div class="tabs">
+        <button id="tabAutor" class="tab active">Registrar autorizador</button>
+        <button id="tabLote" class="tab">Registrar lote</button>
+      </div>
+
+      <div id="cardAutor" class="card active">
+        <h2>Registrar / Editar autorizador</h2>
+        <div class="small" id="modoAutor">Modo: nuevo registro</div>
+
+        <div class="row">
+          <div class="field">
+            <label>UID</label>
+            <input id="a_uid" readonly />
+          </div>
+          <div class="field">
+            <label>Nombre</label>
+            <input id="a_nombre" placeholder="Ej. Juan Pérez" />
+          </div>
+          <div class="field">
+            <label>Rol</label>
+            <input id="a_rol" placeholder="Ej. Jefe de almacén" />
+          </div>
+          <div class="field">
+            <label>Almacén</label>
+            <select id="a_almacen">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="GENERAL">GENERAL</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Activo</label>
+            <select id="a_activo">
+              <option value="true">Sí</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button id="guardarAutor">Guardar autorizador</button>
+          <button id="limpiarAutor" class="secondary">Limpiar</button>
+        </div>
+      </div>
+
+      <div id="cardLote" class="card">
+        <h2>Registrar / Editar lote</h2>
+        <div class="small" id="modoLote">Modo: nuevo registro</div>
+
+        <div class="row">
+          <div class="field">
+            <label>UID</label>
+            <input id="l_uid" readonly />
+          </div>
+          <div class="field">
+            <label>Nombre del lote</label>
+            <input id="l_nombre" placeholder="Ej. Caja tornillos" />
+          </div>
+          <div class="field">
+            <label>Ubicación actual</label>
+            <select id="l_ubicacion">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="TRANSITO">TRANSITO</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Último almacén</label>
+            <select id="l_ultimo">
+              <option value="">Sin dato</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+            </select>
+          </div>
+          <div class="field" style="grid-column: 1 / -1">
+            <label>Descripción</label>
+            <textarea id="l_desc" placeholder="Descripción"></textarea>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button id="guardarLote">Guardar lote</button>
+          <button id="limpiarLote" class="secondary">Limpiar</button>
+        </div>
+      </div>
+
+      <h2>Autorizadores</h2>
+      <div class="small">Haz clic en una fila para editar.</div>
+      <table>
+        <thead>
+          <tr>
+            <th>UID</th>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th>Almacén</th>
+            <th>Activo</th>
+          </tr>
+        </thead>
+        <tbody id="tablaAutorizadores"></tbody>
+      </table>
+
+      <h2 style="margin-top: 28px">Lotes</h2>
+      <div class="small">Haz clic en una fila para editar.</div>
+      <table>
+        <thead>
+          <tr>
+            <th>UID</th>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Último almacén</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaLotes"></tbody>
+      </table>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+  </body>
+</html>
